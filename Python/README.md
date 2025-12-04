@@ -16,7 +16,7 @@ SLASH=/
 
 ## Run
 1. Open a terminal in the directory that contains `shell.nix`
-1. Run `nix-shell` to open the development shell
+1. Run `nix-shell` to open the development shell (or `nix-shell --pure` if `nix-shell` by itself causes issues by trying to auto-run programs from the parent desktop session)
 1. Run Python commands as usual. For example:
     - `python __main__.py` runs the whole project
     - `pytest` Runs all test definitions found within the project
