@@ -1,11 +1,18 @@
+import os
 import settings
 
 
 def build_filepath(year, day, use_examples):
-    root_path = settings.input_path + str(year) + settings.slash
-    example_folder = settings.example_folder if use_examples else ""
+    root_path = str(settings.input_path) + str(year) + str(settings.slash)
+    example_folder = str(settings.example_folder) if use_examples else ""
     filename = "Day" + two_digit_day(day) + ".txt"
-    return root_path + example_folder + filename
+    filepath = root_path + example_folder + filename
+    try:
+        os.path.exists(filepath)
+    except FileNotFoundError as e:
+        raise FileNotFoundError(e)
+    else:
+        return filepath
 
 
 def two_digit_day(day):
