@@ -4,9 +4,9 @@ import settings
 
 def build_filepath(year, day, use_examples):
     root_path = str(settings.input_path) + str(year) + str(settings.slash)
-    example_folder = str(settings.example_folder) if use_examples else ""
+    example_dir = str(settings.example_dir) if use_examples else ""
     filename = "Day" + two_digit_day(day) + ".txt"
-    filepath = root_path + example_folder + filename
+    filepath = root_path + example_dir + filename
     try:
         os.path.exists(filepath)
     except FileNotFoundError as e:

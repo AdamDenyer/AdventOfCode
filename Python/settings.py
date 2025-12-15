@@ -3,10 +3,10 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
+year = os.getenv("YEAR")
+day = os.getenv("DAY")
+run_all = os.getenv("RUN_ALL")
+use_examples = os.getenv("USE_EXAMPLES")
 input_path = os.getenv("INPUT_PATH")
-example_folder = os.getenv("EXAMPLE_FOLDER")
+example_dir = os.getenv("EXAMPLE_DIR")
 slash = os.getenv("SLASH")
-use_examples = False
-run_all = True
-day = 4
-year = 2021
