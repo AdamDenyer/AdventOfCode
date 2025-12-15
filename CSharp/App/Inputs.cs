@@ -1,16 +1,19 @@
 namespace AdventOfCode;
 public static class Inputs{
-    public static string BuildFilepath(int year, int day, bool useExampleFile){
-        //Get the relevant filepath for the current platform from the configuration
-        string platform = Settings.Platform;
-        string path = Settings.Path;
+    public static string BuildFilepath(int year, int day, bool useExamples){
+        //Get the relevant filepath for the target OS from the configuration
+        string inputPath = Settings.InputPath;
         //Expand out any environment variables in the path (e.g. %UserProfile% and %HOME%)
-        string expandedPath = Environment.ExpandEnvironmentVariables(path);
-        string slash = (platform == "Windows") ? "\\" : "/";
-        string exampleFolder = (useExampleFile == true) ? $"Examples{slash}" : "";
+        string expandedPath = Environment.ExpandEnvironmentVariables(inputPath);
+        // Determine the correct slash for filepaths in the target OS
+        string os = Settings.Os;
+        string slash = (os == "Windows") ? "\\" : "/";
+        // If using example inputs, add the Examples subdirectory to the path
+        string exampleDirectory = (useExamples == true) ? $"Examples{slash}" : "";
+        // Format the filename to include a leading zero if the current day is less than 10
         string fileName = day < 10 ? $"Day0{day}.txt" : $"Day{day}.txt";
-
-        return $"{expandedPath}Inputs{slash}{year}{slash}{exampleFolder}{fileName}";
+        // Construct the final filepath from the components above
+        return $"{expandedPath}{slash}{year}{slash}{exampleDirectory}{fileName}";
     }
     public static List<string> ListLines(string filepath){
         return File.ReadAllLines(filepath).ToList();

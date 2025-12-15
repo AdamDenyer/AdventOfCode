@@ -9,11 +9,11 @@ public class Settings{
             .AddUserSecrets<AdventOfCode.Settings>();
         return builder.Build();
     }
-    public static int Today = GetConfig().GetValue<int>("Today");
-    public static int YearInt = GetConfig().GetValue<int>("Year");
-    public static string YearString = GetConfig().GetValue<string>("Year")!;
-    public static string Platform = GetConfig().GetValue<string>("Environment:Platform")!;
-    public static string Path = GetConfig().GetValue<string>($"Environment:Root:{Platform}")!;
-    public static bool UseExampleFiles = GetConfig().GetValue<bool>("UseExampleFiles");
-    public static bool RunAllDays = GetConfig().GetValue<bool>("RunAllDays");
+    public static int CurrentYearInt = GetConfig().GetValue<int>("Current:Year");
+    public static string CurrentYearString = GetConfig().GetValue<string>("Current:Year")!;
+    public static int CurrentDay = GetConfig().GetValue<int>("Current:Day");
+    public static bool RunAllDays = GetConfig().GetValue<bool>("Current:RunAllDays");
+    public static bool UseExamples = GetConfig().GetValue<bool>("Inputs:Examples");
+    public static string Os = GetConfig().GetValue<string>("OS")!;
+    public static string InputPath = GetConfig().GetValue<string>($"Inputs:Path:{Os}")!;
 }
