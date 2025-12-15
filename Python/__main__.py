@@ -10,8 +10,8 @@ def run_day(day):
 
 
 def run_all(highest_day):
-    for day in range(1, highest_day + 1):
-        run_day(day)
+    for day in range(1, int(highest_day) + 1):
+        run_day(str(day))
 
 
 if __name__ == "__main__":
