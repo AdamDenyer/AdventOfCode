@@ -1,11 +1,6 @@
 import inputs
 
 
-def run(use_examples):
-    print("1-1: " + str(part1(use_examples)))
-    print("1-2: " + str(part2(use_examples)))
-
-
 def part1(use_examples):
     filepath = inputs.build_filepath(2021, 1, use_examples)
     return count_increases(inputs.list_ints(filepath, "\n"), 1)

@@ -1,11 +1,6 @@
 import inputs
 
 
-def run(use_examples):
-    print("2-1: " + str(part1(use_examples)))
-    print("2-2: " + str(part2(use_examples)))
-
-
 def part1(use_examples):
     filepath = inputs.build_filepath(2021, 2, use_examples)
     return plot_course(inputs.list_strings(filepath, "\n"), False)

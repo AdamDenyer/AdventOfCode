@@ -2,11 +2,6 @@ import inputs
 import numpy as np
 
 
-def run(use_examples):
-    print("4-1: " + str(part1(use_examples)))
-    print("4-2: " + str(part2(use_examples)))
-
-
 def part1(use_examples):
     filepath = inputs.build_filepath(2021, 4, use_examples)
     return play(filepath)[0]
